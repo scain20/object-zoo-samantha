@@ -3,9 +3,9 @@ class Fish extends Animal {
   color eyeColor;
 
   public Fish (color bc, color ec, int x, int y, int size) {
+    super(x,y,size);
     this.bodyColor = bc;
     this.eyeColor = ec;
-    super(x,y,size);
   }
 
   public void draw() {

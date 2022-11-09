@@ -1,29 +1,40 @@
-//declaring variables
-// stores what animal to draw
+/**
+* This class draws various animals depending on which key is pressed before
+* the mouse is clicked.
+* It uses an array list to store the different animals and their given parameters.
+*
+* @author S. Cain
+* @version 1.0.0
+*/
+
 int animalToDraw;
 ArrayList<Animal>zoo;
- 
+
+/** 
+* Sets the size of the sketch using size imputs and calls setDim() to tell 
+* the Animal class the size of the sketch.
+* Creates a new array list named zoo.
+*/
 void setup() {
-  //sets size of the sketch
   size(500,500);
-  //tells Animal class what the size of the sketch is 
   Animal.setDim(500,500);
-  //creates new array list called zoo
   zoo = new ArrayList<Animal> ();   
 }
 
-
+/**
+* Sets the background color of the sketch, draws and makes the animal drawn walk.
+*/
 void draw() {
-  //sets the background color of the sketch
   background(255);
-  //draws each animal and makes them walk
   for(int i=0; i < zoo.size(); i++){
     zoo.get(i).draw();
     zoo.get(i).walk();
   }
 }
 
-//sets animalToDraw equal to a number based on the key that is pressed
+/**
+* Sets animalToDraw equal to a number based on the key that is pressed.
+*/
 void keyPressed(){
   if(key == 'f')
     animalToDraw = 0;
@@ -33,7 +44,9 @@ void keyPressed(){
     animalToDraw = 2;
 }
 
-//draws an animal based on the number that is stored in animalToDraw
+/**
+*draws an animal based on the number that is stored in animalToDraw
+*/
 void mouseClicked(){
   if(animalToDraw == 0)
     zoo.add(new Fish(color (116,204,186), color(99,98,96), mouseX, mouseY, 1));
